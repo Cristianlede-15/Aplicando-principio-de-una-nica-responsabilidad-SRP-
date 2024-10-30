@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Géneros</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .card-body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .card-title a {
+            color: #343a40;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .card-title a:hover {
+            color: #007bff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 25px;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+            border-radius: 25px;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+    </style>
+</head>
+<body>
+    <%- include('navbar') %>
+    <div class="container mt-5">
+        <h1 class="mb-4">Listado de Géneros</h1>
+        <a href="/generos/new" class="btn btn-outline-warning mb-4">Nuevo Género</a>
+        <div class="row">
+            <% if (generos && generos.length > 0) { %>
+                <% generos.forEach(genero => { %>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="<%= genero.ImageURL %>" class="card-img-top" alt="<%= genero.Nombre %>">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="/generos/<%= genero.ID %>"><%= genero.Nombre %></a></h5>
+                                <a href="/generos/<%= genero.ID %>/edit" class="btn btn-outline-secondary">Editar</a>
+                                <form action="/generos/<%= genero.ID %>?_method=DELETE" method="POST" class="d-inline" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este género?');">
+                                    <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>No hay géneros disponibles.</p>
+            <% } %>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

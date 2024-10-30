@@ -1,0 +1,52 @@
+[
+  {
+    "ID": 1,
+    "Nombre": "Drama",
+    "ImageURL": "https://images.pexels.com/photos/713149/pexels-photo-713149.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    "ID": 2,
+    "Nombre": "Comedia",
+    "ImageURL": "https://images.pexels.com/photos/476/man-person-red-white.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    "ID": 3,
+    "Nombre": "Acción",
+    "ImageURL": "https://images.pexels.com/photos/163443/war-desert-guns-gunshow-163443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    "ID": 4,
+    "Nombre": "Ciencia Ficción",
+    "ImageURL": "https://images.pexels.com/photos/3526022/pexels-photo-3526022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    "ID": 5,
+    "Nombre": "Terror",
+    "ImageURL": "https://images.pexels.com/photos/1528375/pexels-photo-1528375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    "ID": 6,
+    "Nombre": "Romance",
+    "ImageURL": "https://images.pexels.com/photos/326612/pexels-photo-326612.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    "ID": 7,
+    "Nombre": "Documental",
+    "ImageURL": "https://images.pexels.com/photos/275977/pexels-photo-275977.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    "ID": 8,
+    "Nombre": "Animación",
+    "ImageURL": "https://images5.alphacoders.com/134/1345041.png"
+  },
+  {
+    "ID": 9,
+    "Nombre": "Aventura",
+    "ImageURL": "https://images6.alphacoders.com/500/500691.png"
+  },
+  {
+    "ID": 10,
+    "Nombre": "Fantasía",
+    "ImageURL": "https://images5.alphacoders.com/136/1367483.png"
+  }
+]

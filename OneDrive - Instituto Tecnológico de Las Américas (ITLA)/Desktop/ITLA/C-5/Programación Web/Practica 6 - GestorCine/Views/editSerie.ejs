@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Serie</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <%- include('navbar') %>
+    <div class="container mt-5">
+        <h1 class="mb-4">Editar Serie</h1>
+        <form action="/series/<%= serie.ID %>?_method=PUT" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="Nombre" value="<%= serie.Nombre %>" required>
+            </div>
+            <div class="form-group">
+                <label for="imageURL">URL de la Imagen</label>
+                <input type="text" class="form-control" id="imageURL" name="ImageURL" value="<%= serie.ImageURL %>" required>
+            </div>
+            <div class="form-group">
+                <label for="videoURL">URL del Video</label>
+                <input type="text" class="form-control" id="videoURL" name="VideoURL" value="<%= serie.VideoURL %>" required>
+            </div>
+            <div class="form-group">
+                <label for="genero">Género</label>
+                <input type="text" class="form-control" id="genero" name="Genero" value="<%= serie.Genero %>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        </form>
+        <a href="/series" class="btn btn-secondary mt-3">Volver</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

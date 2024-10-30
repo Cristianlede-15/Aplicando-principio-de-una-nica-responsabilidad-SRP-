@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Series</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .card-body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .card-title a {
+            color: #343a40;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .card-title a:hover {
+            color: #007bff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 25px;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <%- include('navbar') %>
+    <div class="container mt-5">
+        <h1 class="mb-4">Listado de Series</h1>
+        <a href="/series/new" class="btn btn-outline-warning mb-4">Nueva serie</a>
+        <form action="/search" method="GET" class="mb-4">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Buscar series..." required>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-primary">Buscar</button>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <% if (series && series.length > 0) { %>
+                <% series.forEach(serie => { %>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="<%= serie.ImageURL %>" class="card-img-top" alt="<%= serie.Nombre %>">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="/serie/<%= serie.ID %>"><%= serie.Nombre %></a></h5>
+                                <a href="/series/<%= serie.ID %>/edit" class="btn btn-outline-secondary">Editar</a>
+                                <form action="/series/<%= serie.ID %>?_method=DELETE" method="POST" class="d-inline" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta serie?');">
+                                    <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>No hay series disponibles.</p>
+            <% } %>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
