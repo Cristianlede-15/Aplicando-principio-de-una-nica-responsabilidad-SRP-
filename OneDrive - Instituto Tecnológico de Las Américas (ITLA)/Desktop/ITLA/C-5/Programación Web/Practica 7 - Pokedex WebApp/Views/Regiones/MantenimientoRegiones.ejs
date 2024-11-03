@@ -1,0 +1,25 @@
+<!-- views/regiones/MantenimientoRegiones.ejs -->
+<%- include('../layout', { title: 'Mantenimiento de Regiones' }) %>
+<h1 class="text-center mb-4">Lista de Regiones</h1>
+
+<!-- Formulario de búsqueda -->
+<form action="/regiones/search" method="get" class="search-form mb-4">
+    <input type="text" name="name" placeholder="Buscar por nombre" class="form-control d-inline">
+    <button type="submit" class="btn">Buscar</button>
+</form>
+<a href="/regiones/new" class="btn btn-success create-button mb-4">Crear Nueva Región</a>
+
+<!-- Lista de regiones -->
+<ul class="list-group">
+    <% regiones.forEach(region => { %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span><%= region.nombre %></span>
+            <div>
+                <a href="/regiones/edit/<%= region.id %>" class="btn btn-primary btn-sm">Editar</a>
+                <form action="/regiones/delete/<%= region.id %>" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de que desea eliminar esta región?');">Eliminar</button>
+                </form>
+            </div>
+        </li>
+    <% }) %>
+</ul>

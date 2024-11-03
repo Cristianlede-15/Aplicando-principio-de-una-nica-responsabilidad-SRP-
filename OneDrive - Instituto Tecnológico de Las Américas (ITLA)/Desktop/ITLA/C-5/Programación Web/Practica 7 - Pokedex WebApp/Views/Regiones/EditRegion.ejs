@@ -1,0 +1,12 @@
+<!-- views/Regiones/EditRegion.ejs -->
+<%- include('../layout', { title: 'Editar Región' }) %>
+
+<h1 class="text-center mb-4">Editar Región</h1>
+
+<form action="/regiones/edit/<%= region.id %>" method="POST" class="region-form">
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" class="form-control" value="<%= region.nombre %>" required>
+    </div>
+    <button type="submit" class="btn btn-primary edit-button">Guardar Cambios</button>
+</form>

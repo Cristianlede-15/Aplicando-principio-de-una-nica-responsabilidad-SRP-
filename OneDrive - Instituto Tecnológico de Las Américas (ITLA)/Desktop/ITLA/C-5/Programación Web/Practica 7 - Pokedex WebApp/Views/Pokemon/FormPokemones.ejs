@@ -1,0 +1,34 @@
+<!-- views/Pokemon/FormPokemones.ejs -->
+<%- include('../layout', { title: pokemon ? 'Editar Pokémon' : 'Crear Nuevo Pokémon' }) %>
+
+<h1 class="text-center mb-4"><%= pokemon ? 'Editar Pokémon' : 'Crear Nuevo Pokémon' %></h1>
+
+<form action="<%= pokemon ? '/pokemones/edit/' + pokemon.id : '/pokemones/new' %>" method="POST" class="pokemon-form">
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" class="form-control" value="<%= pokemon ? pokemon.nombre : '' %>" required>
+    </div>
+    <div class="form-group">
+        <label for="tipo">Tipo</label>
+        <select id="tipo" name="tipo" class="form-control" required>
+            <% tipos.forEach(tipo => { %>
+                <option value="<%= tipo.id %>" <%= pokemon && pokemon.TipoId === tipo.id ? 'selected' : '' %>><%= tipo.nombre %></option>
+            <% }) %>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="region">Región</label>
+        <select id="region" name="region" class="form-control" required>
+            <% regiones.forEach(region => { %>
+                <option value="<%= region.id %>" <%= pokemon && pokemon.RegionId === region.id ? 'selected' : '' %>><%= region.nombre %></option>
+            <% }) %>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="url_imagen">URL de la Imagen</label>
+        <input type="url" id="url_imagen" name="url_imagen" class="form-control" value="<%= pokemon ? pokemon.url_imagen : '' %>" required>
+    </div>
+    <button type="submit" class="btn <%= pokemon ? 'btn-primary edit-button' : 'btn-success create-button' %>">
+        <%= pokemon ? 'Guardar Cambios' : 'Crear' %>
+    </button>
+</form>
